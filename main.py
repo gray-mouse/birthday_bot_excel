@@ -34,8 +34,8 @@ def BirthdayNotification():
                 bot.send_message(chat_id=1717876558 ,text=msg)
     bot.infinity_polling()
 
-#schedule.every(2).minutes.do(BirthdayNotification)
+schedule.every().day.at("15:25").do(BirthdayNotification)
 
-job = schedule.every().minutes.at('2').do(BirthdayNotification)
-schedule.cancel_job(job)
-
+while True:
+    schedule.run_pending()
+    time.sleep(1)
